@@ -1,0 +1,128 @@
+body {
+	background-color: #444649;
+	color: #ddd;
+	/* font-family: 'Playfair Display'; */
+	font-family: Arial;
+	margin: 0 50px;
+}
+
+h1, h2 {
+	font-family: 'Playfair Display';
+}
+
+a, .fortune .actions {
+	color: #79f;
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+}
+
+#container {
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+	margin: 0 auto;
+	width: 900px;
+}
+
+#header, #footer {
+	background-color: #333;
+	padding: 1px 15px;
+}
+
+#header ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#header ul li {
+	display: inline;
+	margin-right: 15px;
+}
+
+#header h1 {
+	text-shadow: 1px 1px 3px black;
+}
+
+#content {
+	background-color: white;
+	border-bottom: 2px dashed #333;
+	border-top: 2px dashed #333;
+	color: black;
+	min-height: 400px;
+	padding: 15px;
+}
+
+#content a:hover {
+	color: #013;
+}
+
+#content h1 {
+	font-size: 16pt;
+}
+
+.pagination li {
+	display: inline;
+}
+
+#aveu {
+	background-color: #234;
+	border: 2px solid #333;
+	border-radius: 5px;
+	box-shadow: 0 0 10px black inset;
+	color: white;
+	display: block;
+	font-family: 'Playfair Display';
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 5px 0 5px;
+	text-align: center;
+	width: 250px;
+}
+
+#aveu:hover {
+	background-color: #79B;
+}
+
+.fortune {
+	background-color: #eef;
+	border: 2px dashed black;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	font-size: 20pt;
+	margin: 0 20px 30px;
+	padding: 20px;
+	padding-bottom: 25px;
+}
+
+.fortune .actions {
+	font-size: 10pt;
+	margin: 0;
+	text-align: right;
+}
+
+.fortune .actions > * {
+	margin-left: 10px;
+}
+
+.fortune .actions .signaler, .fortune .actions .signaler a {
+	color: red;
+}
+
+.fortune .texte {
+	font-family: 'Playfair Display';
+}
+
+#footer {
+	font-size: 10pt;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+fieldset {
+	border: none;
+}
+
+fieldset label {
+	margin-right: 10px;
+}
