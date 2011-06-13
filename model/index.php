@@ -7,11 +7,9 @@ try {
 	$c = array();
 	
 	if (isset($_GET['id'])) {
-		$stmt = $db->prepare("SELECT f.id id, SUM(vote_p) vote_p, SUM(vote_m) vote_m, fortune "
-							."FROM fortune f "
-							."LEFT OUTER JOIN vote v ON v.id_fortune = f.id "
-							."WHERE f.id = :id "
-							."GROUP BY f.id ");
+		$stmt = $db->prepare("SELECT id, vote_p, vote_m, fortune "
+							."FROM fortune "
+							."WHERE id = :id");
 		$stmt->bindParam(":id", $_GET["id"]);
 		$stmt->execute();
 		while ($row = $stmt->fetch()) {
@@ -21,10 +19,8 @@ try {
 			$c["vote_m"] = $row["vote_m"] == null ? 0 : $row["vote_m"];
 		}
 	} else {
-		$query = "SELECT f.id id, SUM(vote_p) vote_p, SUM(vote_m) vote_m, fortune "
-				."FROM fortune f "
-				."LEFT OUTER JOIN vote v ON v.id_fortune = f.id "
-				."GROUP BY f.id "
+		$query = "SELECT id, vote_p, vote_m, fortune "
+				."FROM fortune "
 				."ORDER BY RAND() "
 				."LIMIT 1";
 		foreach ($db->query($query) as $row) {

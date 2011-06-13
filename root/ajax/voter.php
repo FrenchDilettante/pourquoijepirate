@@ -1,5 +1,5 @@
 <?
-require_once '../model/db.php';
+require_once '../../model/db.php';
 
 $id_fortune = $_POST["id"];
 $vote_p = $_POST["vote"] == 1;

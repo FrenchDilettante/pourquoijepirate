@@ -15,11 +15,9 @@ try {
 	}
 	
 	$confessions = array();
-	$query = "SELECT f.id id, SUM(vote_p) vote_p, SUM(vote_m) vote_m, fortune "
+	$query = "SELECT id id, vote_p, vote_m, fortune "
 			."FROM fortune f "
-			."LEFT OUTER JOIN vote v ON v.id_fortune = f.id "
-			."GROUP BY f.id "
-			."ORDER BY SUM(vote_p) DESC, date_ajout DESC "
+			."ORDER BY vote_p DESC, date_ajout DESC "
 			."LIMIT $p, 10";
 	foreach ($db->query($query) as $row) {
 		$conf = array();

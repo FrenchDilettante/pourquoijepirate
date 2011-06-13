@@ -21,12 +21,10 @@ try {
 		$selection["nom"] = $row["nom"];
 	}
 	
-	$query = "SELECT f.id id, SUM(vote_p) vote_p, SUM(vote_m) vote_m, fortune "
+	$query = "SELECT f.id id, vote_p, vote_m, fortune "
 			."FROM fortune f "
-			."LEFT OUTER JOIN vote v ON v.id_fortune = f.id "
 			."INNER JOIN fortune_selection fs ON f.id = fs.id_fortune "
 			."WHERE fs.id_selection = :ids "
-			."GROUP BY f.id "
 			."ORDER BY date_ajout DESC ";
 	$stmt = $db->prepare($query);
 	$stmt->bindParam(":ids", $ids);
