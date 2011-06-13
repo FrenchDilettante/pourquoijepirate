@@ -1,6 +1,7 @@
 <?
 session_start();
 include "../model/top.php";
+$page_url = "top.php";
 ?><!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -17,37 +18,25 @@ include "../model/top.php";
 			</div>
 			
 			<div id="content">
-				<a id="aveu" href="avouer.php">Dis-nous pourquoi tu pirates !</a>
+				<div class="top-plages">
+					<ul>
+						<li><a href="top.php?from=24h">24h</a></li>
+						<li><a href="top.php?from=3j">3j</a></li>
+						<li><a href="top.php?from=1s">1s</a></li>
+					</ul>
+				</div>
+				
+				<a id="aveu" style="margin: 0" href="avouer.php">Dis-nous pourquoi tu pirates !</a>
 				
 				<div class="main">
 					<h1>Les plus pires fourbonneries (quelque part entre fourbe et forban)</h1>
-					<ul class="pagination">
-					<? for ($i=0; $i<$count; $i++) { ?>
-						<li>
-						<? if ($i == ($p / 10)) { ?>
-							<? echo $i + 1; ?>
-						<? } else { ?>
-							<a href="top.php?p=<? echo $i ?>"><? echo $i + 1; ?></a>
-						<? } ?>
-						</li>
-					<? } ?>
-					</ul>
+					<? include "fragments/pages.php" ?>
 					
 					<? foreach ($confessions as $c) { ?>
 						<? include "../fragments/fortune.php" ?>
 					<? } ?>
 					
-					<ul class="pagination">
-					<? for ($i=0; $i<$count; $i++) { ?>
-						<li>
-						<? if ($i == ($p / 10)) { ?>
-							<? echo $i + 1; ?>
-						<? } else { ?>
-							<a href="top.php?p=<? echo $i ?>"><? echo $i + 1; ?></a>
-						<? } ?>
-						</li>
-					<? } ?>
-					</ul>
+					<? include "fragments/pages.php" ?>
 				</div>
 			</div>
 			

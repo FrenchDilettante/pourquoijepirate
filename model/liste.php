@@ -9,6 +9,7 @@ try {
 	}
 
 	$p = isset($_GET['p']) ? mysql_escape_string($_GET['p']) : 0;
+	$p -= isset($_GET['offset']) ? mysql_escape_string($_GET['offset']) : 0;
 	$p *= 10;
 	if ($p < 0) {
 		$p = 0;

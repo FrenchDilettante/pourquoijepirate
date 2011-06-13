@@ -1,2 +1,3 @@
+<div style="float: right"><iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FPourquoi-je-pirate-%2F227964643880769&amp;width=292&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=true&amp;height=62" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe></div>
 <p>Site fait à l'arrache par <a href="http://twitter.com/manudwarf">@manudwarf</a>. CC BY-SA, certains droits réservés. Si vous me copiez, je ne vous poursuivrai pas en justice, <em>moi</em>.</p>
 N'oubliez pas de consulter la <a href="http://manudwarf.wordpress.com/2011/06/02/pourquoi-je-pirate-faq/">FAQ</a>.

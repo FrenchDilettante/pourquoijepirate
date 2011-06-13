@@ -1,6 +1,7 @@
 <?
 session_start();
 include "../model/liste.php";
+$page_url = "liste.php";
 ?><!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -21,33 +22,13 @@ include "../model/liste.php";
 				
 				<div class="main">
 					<h1>Les dernières confessions</h1>
-					<ul class="pagination">
-					<? for ($i=0; $i<$count; $i++) { ?>
-						<li>
-						<? if ($i == ($p / 10)) { ?>
-							<? echo $i + 1; ?>
-						<? } else { ?>
-							<a href="liste.php?p=<? echo $i ?>"><? echo $i + 1; ?></a>
-						<? } ?>
-						</li>
-					<? } ?>
-					</ul>
+					<? include "fragments/pages.php" ?>
 					
 					<? foreach ($confessions as $c) { ?>
 						<? include "../fragments/fortune.php" ?>
 					<? } ?>
 					
-					<ul class="pagination">
-					<? for ($i=0; $i<$count; $i++) { ?>
-						<li>
-						<? if ($i == ($p / 10)) { ?>
-							<? echo $i + 1; ?>
-						<? } else { ?>
-							<a href="liste.php?p=<? echo $i ?>"><? echo $i + 1; ?></a>
-						<? } ?>
-						</li>
-					<? } ?>
-					</ul>
+					<? include "fragments/pages.php" ?>
 				</div>
 			</div>
 			

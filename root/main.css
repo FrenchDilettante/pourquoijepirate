@@ -119,6 +119,14 @@ a:hover {
 	padding-top: 10px;
 }
 
+.top-plages {
+	float: right;
+}
+
+.top-plages ul li {
+	display: inline;
+}
+
 fieldset {
 	border: none;
 }
