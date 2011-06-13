@@ -18,17 +18,19 @@ $page_url = "top.php";
 			</div>
 			
 			<div id="content">
-				<div class="top-plages">
-					<ul>
-						<li><a href="top.php?from=24h">24h</a></li>
-						<li><a href="top.php?from=3j">3j</a></li>
-						<li><a href="top.php?from=1s">1s</a></li>
-					</ul>
-				</div>
 				
-				<a id="aveu" style="margin: 0" href="avouer.php">Dis-nous pourquoi tu pirates !</a>
+				<a id="aveu" href="avouer.php">Dis-nous pourquoi tu pirates !</a>
 				
 				<div class="main">
+					<div class="top-plages">
+						<ul>
+							<li><a href="top.php?from=24h" class="<? echo $plage == "24h" ? "select" : "" ?>">24h</a></li>
+							<li><a href="top.php?from=3j" class="<? echo $plage == "3j" ? "select" : "" ?>">3j</a></li>
+							<li><a href="top.php?from=1s" class="<? echo $plage == "1s" ? "select" : "" ?>">1s</a></li>
+							<li><a href="top.php?from=all" class="<? echo $plage == "all" ? "select" : "" ?>">Tout</a></li>
+						</ul>
+					</div>
+					
 					<h1>Les plus pires fourbonneries (quelque part entre fourbe et forban)</h1>
 					<? include "fragments/pages.php" ?>
 					

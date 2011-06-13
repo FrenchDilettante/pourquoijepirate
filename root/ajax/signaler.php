@@ -1,5 +1,5 @@
 <?
-require_once '../model/db.php';
+require_once '../../model/db.php';
 
 $id_fortune = $_POST["id"];
 $ip_from = $_SERVER["REMOTE_ADDR"];

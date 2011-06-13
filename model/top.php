@@ -3,7 +3,7 @@ require_once "../model/db.php";
 
 $plage = isset($_COOKIE["top-plage"]) ? $_COOKIE["top-plage"] : "24h";
 $plage = isset($_GET["from"]) ? $_GET["from"] : $plage;
-$_COOKIE["top-plage"] = $plage;
+setcookie("top-plage", $plage);
 
 try {
 	$db = new PDO("mysql:host=localhost;dbname=pqjep", $db_username, $db_password);
@@ -12,12 +12,13 @@ try {
 	
 	switch ($plage) {
 		case "3j":
-			$where_clause = "WHERE date_vote >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 4 DAY) ";
+			$where_clause = "WHERE date_vote >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY) ";
 			break;
 		case "1s":
 			$where_clause = "WHERE date_vote >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 WEEK) ";
 			break;
 		case "all":
+			$where_clause = "";
 			break;
 			
 		default:
@@ -26,7 +27,7 @@ try {
 	}
 	
 	$count = 0;
-	foreach ($db->query("SELECT COUNT(*) nb FROM fortune $where_clause") as $row) {
+	foreach ($db->query("SELECT COUNT(DISTINCT f.id) nb FROM fortune f LEFT OUTER JOIN vote v ON f.id = v.id_fortune $where_clause") as $row) {
 		$count = round($row["nb"] / 10, 0);
 	}
 
@@ -37,13 +38,14 @@ try {
 	}
 	
 	$confessions = array();
-	$query = "SELECT id id, vote_p, vote_m, fortune "
+	$query = "SELECT f.id id, f.vote_p, f.vote_m, fortune "
 			."FROM fortune f "
-			."ORDER BY vote_p DESC, date_ajout DESC "
+			."LEFT OUTER JOIN vote v ON f.id = v.id_fortune "
+			.$where_clause
+			."GROUP BY f.id "
+			."ORDER BY SUM(v.vote_p) DESC, date_ajout DESC "
 			."LIMIT $p, 10";
 
-	echo $query;
-	
 	foreach ($db->query($query) as $row) {
 		$conf = array();
 		$conf['id'] = $row["id"];

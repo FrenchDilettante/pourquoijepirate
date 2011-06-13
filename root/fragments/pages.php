@@ -7,7 +7,7 @@
 		1 &lt;&lt;
 	<? } ?>
 	</li>
-<? for ($i=($curpage-$ecart > 1 ? $curpage-$ecart+1 : 1); $i<($curpage+$ecart < $count + 1 ? $curpage+$ecart: $count-1); $i++) { ?>
+<? for ($i=($curpage-$ecart > 1 ? $curpage-$ecart+1 : 1); $i<($curpage+$ecart < $count + 1 ? $curpage+$ecart: $count); $i++) { ?>
 	<li>
 	<? if ($i == ($curpage)) { ?>
 		<? echo $i + 1; ?>

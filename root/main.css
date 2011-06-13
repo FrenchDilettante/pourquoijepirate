@@ -127,6 +127,10 @@ a:hover {
 	display: inline;
 }
 
+.top-plages a.select {
+	color: black;
+}
+
 fieldset {
 	border: none;
 }
