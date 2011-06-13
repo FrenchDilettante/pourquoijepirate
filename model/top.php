@@ -12,17 +12,17 @@ try {
 	
 	switch ($plage) {
 		case "3j":
-			$where_clause = "WHERE date_vote >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY) ";
+			$where_clause = "WHERE date_ajout >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY) ";
 			break;
 		case "1s":
-			$where_clause = "WHERE date_vote >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 WEEK) ";
+			$where_clause = "WHERE date_ajout >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 WEEK) ";
 			break;
 		case "all":
 			$where_clause = "";
 			break;
 			
 		default:
-			$where_clause = "WHERE date_vote >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY) ";
+			$where_clause = "WHERE date_ajout >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY) ";
 			break;
 	}
 	
@@ -40,10 +40,8 @@ try {
 	$confessions = array();
 	$query = "SELECT f.id id, f.vote_p, f.vote_m, fortune "
 			."FROM fortune f "
-			."LEFT OUTER JOIN vote v ON f.id = v.id_fortune "
 			.$where_clause
-			."GROUP BY f.id "
-			."ORDER BY SUM(v.vote_p) DESC, date_ajout DESC "
+			."ORDER BY vote_p DESC, date_ajout DESC "
 			."LIMIT $p, 10";
 
 	foreach ($db->query($query) as $row) {
