@@ -8,11 +8,9 @@ try {
 
 	$c = array();
 	
-	$query = "SELECT f.id id, SUM(vote_p) vote_p, SUM(vote_m) vote_m, fortune "
-			."FROM fortune f "
-			."LEFT OUTER JOIN vote v ON v.id_fortune = f.id "
-			."WHERE f.id = :id "
-			."GROUP BY f.id";
+	$query = "SELECT id, vote_p, vote_m, fortune "
+			."FROM fortune "
+			."WHERE id = :id ";
 	$stmt = $db->prepare($query);
 	$stmt->bindParam(":id", $id);
 	$stmt->execute();
